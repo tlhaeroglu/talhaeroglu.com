@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container p-5">
+        <textarea name="editor" id="edit"></textarea><br>
+        <button class="btn btn-primary" id="button">Submit</button>
+        <br><br>
+        <p class="border border-primary" id="para">
+
+        </p>
+    </div>
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('editor');
+
+        var btn = document.getElementById('button');
+        var para = document.getElementById('para');
+        const edit = document.getElementById('edit');
+        btn.addEventListener('click',(e)=>{
+            e.preventDefault();
+            console.log(CKEDITOR.instances.edit.getData());
+            para.innerHTML= CKEDITOR.instances.edit.getData();
+        })
+    </script>
+</body>
+</html>
